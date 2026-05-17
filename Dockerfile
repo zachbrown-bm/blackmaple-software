@@ -7,7 +7,7 @@ WORKDIR /app
 RUN rustup target add wasm32-unknown-unknown
 
 # Install Trunk
-RUN wget -qO- https://github.com | tar -xzf- -C /usr/local/bin
+RUN cargo install --locked trunk
 
 # Copy the rest of your app and build
 COPY . .
