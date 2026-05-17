@@ -1,0 +1,4 @@
+# this file doesn't exist by default, totally optional but useful
+# if you want to overwrite default trunk settings
+[serve]
+port = 8000
