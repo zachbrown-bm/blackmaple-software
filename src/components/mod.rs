@@ -1,2 +1,2 @@
-pub mod splash_logo;
 pub mod footer;
+pub mod splash_logo;

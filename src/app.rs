@@ -1,7 +1,7 @@
 use yew::prelude::*;
 
-use crate::components::splash_logo::SplashLogo;
 use crate::components::footer::Footer;
+use crate::components::splash_logo::SplashLogo;
 
 #[component]
 pub fn App() -> Html {
