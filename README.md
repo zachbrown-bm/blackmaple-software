@@ -1,7 +1,3 @@
-## Usage
-
-For a more thorough explanation of Trunk and its features, please head over to the [repository][trunk].
-
 ### Installation
 
 If you don't already have it installed, it's time to install Rust: <https://www.rust-lang.org/tools/install>.

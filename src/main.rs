@@ -1,5 +1,6 @@
 mod app;
 mod components;
+mod routes;
 
 use app::App;
 use tracing_subscriber::{filter::Targets, prelude::*};
