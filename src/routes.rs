@@ -1,4 +1,4 @@
-use yew::{html, Html};
+use yew::{Html, html};
 use yew_router::prelude::*;
 
 use crate::app::{Home, NotFound, Tools};
