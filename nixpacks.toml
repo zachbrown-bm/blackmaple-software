@@ -1,5 +1,5 @@
 # Tell Nixpacks to stop using its built-in automated Rust provider
-providers = []
+providers = ["staticfile"]
 
 [phases.setup]
 # Install basic dependencies needed for downloads and compilation
