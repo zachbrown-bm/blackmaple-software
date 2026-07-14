@@ -1,11 +1,21 @@
-[providers.rust]
-targets = ["wasm32-unknown-unknown"]
+# Tell Nixpacks to explicitly use the Rust provider
+providers = ["rust"]
+
+[variables]
+# This ensures any binaries downloaded or built are available in the PATH
+PATH = "/root/.cargo/bin:$PATH"
 
 [phases.setup]
-pkgs = ["...", "cargo", "rustc"] # Keeps your existing packages
+# This explicitly adds the wasm32 target directly via Nix packages
+aptPkgs = ["libssl-dev", "pkg-config"]
+pkgs = ["cargo", "rustc", "wasm-bindgen-cli", "rustPlatform.rustMarker", "rustup"]
 
 [phases.install]
-cmds = ["curl -L --proto '=https' --tlsv1.2 -sSf https://githubusercontent.com | sh"]
+# Downloads the pre-compiled Trunk binary instantly to save you 6+ minutes
+cmds = [
+    "curl -L --proto '=https' --tlsv1.2 -sSf https://githubusercontent.com | sh",
+    "rustup target add wasm32-unknown-unknown"
+]
 
 [phases.build]
 cmds = ["trunk build --release"]
