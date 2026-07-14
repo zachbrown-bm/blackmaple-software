@@ -2,11 +2,12 @@ use yew::prelude::*;
 use yew_router::prelude::*;
 
 use crate::components::footer::Footer;
+use crate::components::pjpermit::PjPermit;
 use crate::components::splash_logo::SplashLogo;
 use crate::routes::{Route, route_switch};
 
 #[component]
-pub fn App() -> Html {
+pub fn AppPage() -> Html {
     html! {
         <BrowserRouter>
             <Switch<Route> render={route_switch}/>
@@ -15,7 +16,7 @@ pub fn App() -> Html {
 }
 
 #[component]
-pub fn Home() -> Html {
+pub fn HomePage() -> Html {
     html! {
         <main>
             <SplashLogo />
@@ -26,7 +27,7 @@ pub fn Home() -> Html {
 }
 
 #[component]
-pub fn Tools() -> Html {
+pub fn ToolsPage() -> Html {
     html! {
         <main>
             <SplashLogo />
@@ -35,6 +36,17 @@ pub fn Tools() -> Html {
                 <li>{ "GUID Gen" }</li>
                 <li>{ "URL Shortener" }</li>
             </ul>
+            <Footer />
+        </main>
+    }
+}
+
+#[component]
+pub fn PjPermitPage() -> Html {
+    html! {
+        <main>
+            <SplashLogo />
+            <PjPermit />
             <Footer />
         </main>
     }

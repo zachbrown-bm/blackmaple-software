@@ -1,0 +1,72 @@
+use gloo_net::http::Request;
+use wasm_bindgen_futures::spawn_local;
+use yew::prelude::*;
+
+// the same as current component but setup to call an API endpoint
+// that will send me an email when the application is accepted
+
+#[component]
+pub fn PjPermit() -> Html {
+    let submitted = use_state(|| false);
+    let submitting = use_state(|| false);
+    let error = use_state(|| None::<String>);
+
+    let on_apply = {
+        let submitted = submitted.clone();
+        let submitting = submitting.clone();
+        let error = error.clone();
+
+        Callback::from(move |_| {
+            let submitted = submitted.clone();
+            let submitting = submitting.clone();
+            let error = error.clone();
+
+            submitting.set(true);
+            error.set(None);
+
+            spawn_local(async move {
+                let result = Request::post("/api/pj-permit/apply")
+                    .send()
+                    .await;
+
+                submitting.set(false);
+
+                match result {
+                    Ok(response) if response.ok() => {
+                        submitted.set(true);
+                    }
+                    Ok(_) => {
+                        error.set(Some("Unable to submit the application. Please try again.".to_string()));
+                    }
+                    Err(_) => {
+                        error.set(Some("Unable to submit the application. Please try again.".to_string()));
+                    }
+                }
+            });
+        })
+    };
+
+    html! {
+        <div>
+            <div>{"Press the button to apply for extend duration PJ Permit"}</div>
+
+            if *submitted {
+                <div>{"PJ Permit application has been submitted, you will be notified verbally if your application has been accepted."}</div>
+            } else {
+                <button onclick={on_apply} disabled={*submitting}>
+                    {
+                        if *submitting {
+                            "Applying..."
+                        } else {
+                            "Apply"
+                        }
+                    }
+                </button>
+            }
+
+            if let Some(error_message) = &*error {
+                <div>{error_message}</div>
+            }
+        </div>
+    }
+}

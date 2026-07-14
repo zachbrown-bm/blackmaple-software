@@ -2,7 +2,7 @@ mod app;
 mod components;
 mod routes;
 
-use app::App;
+use app::AppPage;
 use tracing_subscriber::{filter::Targets, prelude::*};
 use tracing_web::MakeWebConsoleWriter;
 
@@ -21,5 +21,5 @@ fn main() {
     tracing_subscriber::registry().with(fmt_layer).init();
 
     tracing::info!("Starting Yew application");
-    yew::Renderer::<App>::new().render();
+    yew::Renderer::<AppPage>::new().render();
 }
