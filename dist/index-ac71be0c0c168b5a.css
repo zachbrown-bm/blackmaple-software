@@ -1,0 +1,75 @@
+@charset "UTF-8";
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #1F2747;
+  font-family: "Funnel Display", sans-serif;
+  color: white;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+}
+
+main {
+  text-align: center;
+}
+
+h1 {
+  line-height: 1;
+}
+
+.heart:after {
+  content: "❤️";
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+footer .info {
+  padding: 10px 0;
+  display: block;
+  font-size: 0.75em;
+}
+
+.content-container {
+  padding: 20px;
+  max-width: 500px;
+}
+.content-container .user-inputs {
+  margin-top: 20px;
+}
+.content-container .user-inputs label {
+  margin-right: 10px;
+}
+.content-container .user-inputs input {
+  outline: none;
+}
+.content-container .thankyou {
+  margin-top: 20px;
+  color: #009a5b;
+  font-weight: bold;
+  font-size: 0.75em;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.75em;
+  border: 1px solid #009a5b;
+  background-color: #ccffcc;
+}
+.content-container div[role=alert] {
+  margin-top: 20px;
+  color: red;
+  font-weight: bold;
+  background-color: #ffcccc;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.75em;
+  border: 1px solid #ff0000;
+}
