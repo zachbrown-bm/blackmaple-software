@@ -7,6 +7,7 @@ PATH = "/root/.cargo/bin:$PATH"
 
 [phases.setup]
 # This explicitly adds the wasm32 target directly via Nix packages
+nixPkgs = ["...", "trunk"]
 aptPkgs = ["libssl-dev", "pkg-config"]
 pkgs = ["cargo", "rustc", "wasm-bindgen-cli", "rustPlatform.rustMarker", "rustup"]
 
