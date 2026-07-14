@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="engl">
+  <head>
+    <meta charset="utf-8" />
+    <title>Black Maple Software</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="/index-acde13b589b3f7fe.css" integrity="sha384-a0d7CQEX0OVuDlp6u4QQ6KWFJzBUlKbyOcAwWoyqheIpnttjlBZtWU6T+Fgv2JnX"/>
+    <link rel="icon" href="/favicon-b157513949d8792b.ico" integrity="sha384-3jIayFZy7XM9jLsZ+w7rDEtENPYdG51TXBsabTdkcvXmYlI2q+V5ZRbOA8KzPQJF"/>
+  <link rel="modulepreload" href="/blackmaple_software-3bfa080a876ac6d5.js" crossorigin="anonymous" integrity="sha384-y1B3Mx0p4FrdJ/6WnWXsnRJfFujjlHMiXGcZRZhvF70/3r7b3EfJ6PxRBF9hXV31"><link rel="preload" href="/blackmaple_software-3bfa080a876ac6d5_bg.wasm" crossorigin="anonymous" integrity="sha384-+0tMpSudDMKNT2Y5nRmWgp0H9s+0Ki4D/pSCMQqbm3aGRwe1u/VBmQxg1zVlEBUx" as="fetch" type="application/wasm"></head>
+  <body>
+<script type="module">
+import init, * as bindings from '/blackmaple_software-3bfa080a876ac6d5.js';
+const wasm = await init({ module_or_path: '/blackmaple_software-3bfa080a876ac6d5_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>
