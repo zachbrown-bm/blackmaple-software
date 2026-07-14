@@ -1,0 +1,11 @@
+[providers.rust]
+targets = ["wasm32-unknown-unknown"]
+
+[phases.setup]
+pkgs = ["...", "cargo", "rustc"] # Keeps your existing packages
+
+[phases.install]
+cmds = ["curl -L --proto '=https' --tlsv1.2 -sSf https://githubusercontent.com | sh"]
+
+[phases.build]
+cmds = ["trunk build --release"]
