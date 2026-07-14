@@ -8,7 +8,7 @@ nixPkgs = ["curl", "gcc", "pkg-config", "openssl"]
 [phases.install]
 cmds = [
     # 1. Download and silently install rustup into the environment
-    "curl --proto '=https' --tlsv1.2 -sSf https://rustup.rs | sh -s -- -y",
+    "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
 
     # 2. Add the Cargo binary directory to the active path for this stage
     "export PATH=\"$HOME/.cargo/bin:$PATH\"",
