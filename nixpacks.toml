@@ -16,8 +16,9 @@ cmds = [
     # 3. Add the wasm32 compilation target via rustup
     "rustup target add wasm32-unknown-unknown",
 
-    # 4. Fetch the pre-compiled Trunk binary directly into the cargo folder
-    "curl -L --proto '=https' --tlsv1.2 -sSf https://githubusercontent.com | BINDIR=$HOME/.cargo/bin sh"
+    # 4. Use Quick-Binstall to instantly fetch the pre-compiled Trunk tool binary
+    "cargo install cargo-binstall",
+    "cargo binstall -y trunk"
 ]
 
 [phases.build]
