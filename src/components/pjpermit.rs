@@ -1,3 +1,5 @@
+use gloo_net::http::Request;
+use wasm_bindgen_futures::spawn_local;
 use yew::prelude::*;
 
 #[component]
@@ -30,6 +32,18 @@ pub fn PjPermit() -> Html {
 
             error.set(None);
             submitted.set(true);
+
+            spawn_local(async {
+                match Request::get(
+                    "https://6u74h07g5c.execute-api.us-east-1.amazonaws.com/prod/pj_permit",
+                )
+                .send()
+                .await
+                {
+                    Ok(_) => tracing::info!("PJ Permit notification sent"),
+                    Err(e) => tracing::error!("Failed to send PJ Permit notification: {:?}", e),
+                }
+            });
         })
     };
 
