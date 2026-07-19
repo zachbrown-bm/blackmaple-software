@@ -53,7 +53,7 @@ pub fn PjPermit() -> Html {
                 <div>{format!("PJ Permit application has been submitted for {}, you will be notified verbally if your application has been accepted.", name.trim())}</div>
                 <div class="thankyou">{"Thank you for your application!"}</div>
             } else {
-                <div>{"Press the button to apply for extend duration PJ Permit"}</div>
+                <div>{"Enter your name and press \"Submit\" to apply for an extended duration PJ Permit"}</div>
                 <div class="user-inputs">
                     <label for="pj-permit-name">{"Name:"}</label>
                     <input
@@ -63,7 +63,7 @@ pub fn PjPermit() -> Html {
                         oninput={on_name_input}
                         placeholder="Enter your name"
                     />
-                    <button onclick={on_apply}>{"Apply"}</button>
+                    <button onclick={on_apply}>{"Submit"}</button>
                     if let Some(message) = &*error {
                         <div role="alert">{message}</div>
                     }
